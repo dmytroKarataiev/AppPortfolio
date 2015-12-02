@@ -1,11 +1,13 @@
 package karataiev.dmytro.myappportfolio;
 
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        // Adds red color filter to the button
+        Button capstone = (Button) findViewById(R.id.capstone);
+        capstone.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
+
     }
 
     @Override
@@ -41,10 +48,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void blankActivity(View view) {
-        String text = "Nothing to show yet!";
+        // Toast shows text on the pressed button
+        String textOnButton = ((Button) view).getText().toString();
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(this, text, duration);
+        Toast toast = Toast.makeText(this, textOnButton, duration);
         toast.show();
     }
 }
