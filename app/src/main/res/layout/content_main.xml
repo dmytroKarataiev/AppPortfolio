@@ -1,19 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="karataiev.dmytro.myappportfolio.MainActivity"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:background="#cac7c7">
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
-</RelativeLayout>
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:text="@string/title"
+        android:textSize="@dimen/textTitle" />
+
+    <Button
+        android:id="@+id/spotify"
+        style="@style/myButton"
+        android:onClick="blankActivity"
+        android:text="@string/spotify" />
+
+    <Button
+        android:id="@+id/scores"
+        style="@style/myButton"
+        android:onClick="blankActivity"
+        android:text="@string/scores" />
+
+    <Button
+        android:id="@+id/library"
+        style="@style/myButton"
+        android:onClick="blankActivity"
+        android:text="@string/library" />
+
+    <Button
+        android:id="@+id/buildIt"
+        style="@style/myButton"
+        android:onClick="blankActivity"
+        android:text="@string/buildIt" />
+
+    <Button
+        android:id="@+id/xyz"
+        style="@style/myButton"
+        android:onClick="blankActivity"
+        android:text="@string/xyz" />
+
+    <Button
+        android:id="@+id/capstone"
+        style="@style/myButton"
+        android:onClick="blankActivity"
+        android:text="@string/capstone" />
+</LinearLayout>
