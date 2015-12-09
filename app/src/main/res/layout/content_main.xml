@@ -15,47 +15,60 @@
     tools:showIn="@layout/activity_main"
     android:background="#cac7c7">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:text="@string/title"
-        android:textSize="@dimen/textTitle" />
 
-    <Button
-        android:id="@+id/spotify"
-        style="@style/myButton"
-        android:onClick="blankActivity"
-        android:text="@string/spotify" />
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@string/title"
+            android:textSize="@dimen/textTitle" />
 
-    <Button
-        android:id="@+id/scores"
-        style="@style/myButton"
-        android:onClick="blankActivity"
-        android:text="@string/scores" />
+        <Button
+            android:id="@+id/popMovie1"
+            style="@style/myButton"
+            android:onClick="blankActivity"
+            android:text="@string/popMovie1" />
 
-    <Button
-        android:id="@+id/library"
-        style="@style/myButton"
-        android:onClick="blankActivity"
-        android:text="@string/library" />
+        <Button
+            android:id="@+id/popMovie2"
+            style="@style/myButton"
+            android:onClick="blankActivity"
+            android:text="@string/popMovie2" />
 
-    <Button
-        android:id="@+id/buildIt"
-        style="@style/myButton"
-        android:onClick="blankActivity"
-        android:text="@string/buildIt" />
+        <Button
+            android:id="@+id/superDuo"
+            style="@style/myButton"
+            android:onClick="blankActivity"
+            android:text="@string/superDuo" />
 
-    <Button
-        android:id="@+id/xyz"
-        style="@style/myButton"
-        android:onClick="blankActivity"
-        android:text="@string/xyz" />
+        <Button
+            android:id="@+id/buildIt"
+            style="@style/myButton"
+            android:onClick="blankActivity"
+            android:text="@string/buildIt" />
 
-    <Button
-        android:id="@+id/capstone"
-        style="@style/myButton"
-        android:onClick="blankActivity"
-        android:text="@string/capstone" />
+        <Button
+            android:id="@+id/material"
+            style="@style/myButton"
+            android:onClick="blankActivity"
+            android:text="@string/material" />
+
+        <Button
+            android:id="@+id/ubiquitous"
+            style="@style/myButton"
+            android:onClick="blankActivity"
+            android:text="@string/ubiquitos" />
+
+        <Button
+            android:id="@+id/capstone1"
+            style="@style/myButton"
+            android:onClick="blankActivity"
+            android:text="@string/capstone1" />
+
+        <Button
+            android:id="@+id/capstone2"
+            style="@style/myButton"
+            android:onClick="blankActivity"
+            android:text="@string/capstone2" />
 </LinearLayout>

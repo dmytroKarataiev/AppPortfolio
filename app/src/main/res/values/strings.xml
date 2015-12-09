@@ -2,10 +2,14 @@
     <string name="app_name">My App Portfolio</string>
     <string name="action_settings">Settings</string>
     <string name="title">Nanodegree Projects</string>
-    <string name="spotify">Spotify Streamer</string>
-    <string name="scores">Scores</string>
-    <string name="library">Library</string>
+
+    <!-- Names of the buttons -->
+    <string name="popMovie1">Popular Movies I</string>
+    <string name="popMovie2">Popular Movies II</string>
+    <string name="superDuo">Super Duo</string>
     <string name="buildIt">Build It</string>
-    <string name="xyz">XYZ Reader</string>
-    <string name="capstone">Capstone: My Own App</string>
+    <string name="material">Make App Material</string>
+    <string name="ubiquitos">Go Ubiquitous</string>
+    <string name="capstone1">Capstone I</string>
+    <string name="capstone2">Capstone II</string>
 </resources>

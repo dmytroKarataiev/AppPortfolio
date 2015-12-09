@@ -20,8 +20,11 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         // Adds red color filter to the button
-        Button capstone = (Button) findViewById(R.id.capstone);
+        Button capstone = (Button) findViewById(R.id.capstone1);
+        Button capstone2 = (Button) findViewById(R.id.capstone2);
+
         capstone.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
+        capstone2.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
 
     }
 
