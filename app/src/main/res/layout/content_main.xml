@@ -25,22 +25,19 @@
             android:textSize="@dimen/textTitle" />
 
         <Button
-            android:id="@+id/popMovie1"
+            android:id="@+id/popMovie"
             style="@style/myButton"
-            android:onClick="blankActivity"
-            android:text="@string/popMovie1" />
+            android:text="@string/popMovie" />
 
         <Button
-            android:id="@+id/popMovie2"
+            android:id="@+id/alexandria"
             style="@style/myButton"
-            android:onClick="blankActivity"
-            android:text="@string/popMovie2" />
+            android:text="@string/alexandria" />
 
         <Button
-            android:id="@+id/superDuo"
+            android:id="@+id/football_scores"
             style="@style/myButton"
-            android:onClick="blankActivity"
-            android:text="@string/superDuo" />
+            android:text="@string/football_scores" />
 
         <Button
             android:id="@+id/buildIt"

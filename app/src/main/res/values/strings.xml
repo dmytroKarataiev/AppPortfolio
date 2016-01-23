@@ -4,9 +4,9 @@
     <string name="title">Nanodegree Projects</string>
 
     <!-- Names of the buttons -->
-    <string name="popMovie1">Popular Movies I</string>
-    <string name="popMovie2">Popular Movies II</string>
-    <string name="superDuo">Super Duo</string>
+    <string name="popMovie">Popular Movies</string>
+    <string name="alexandria">Book Scanner</string>
+    <string name="football_scores">Football scores</string>
     <string name="buildIt">Build It</string>
     <string name="material">Make App Material</string>
     <string name="ubiquitos">Go Ubiquitous</string>

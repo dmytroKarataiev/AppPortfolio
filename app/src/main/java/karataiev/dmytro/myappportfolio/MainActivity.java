@@ -1,5 +1,8 @@
 package karataiev.dmytro.myappportfolio;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -26,6 +29,31 @@ public class MainActivity extends AppCompatActivity {
         capstone.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
         capstone2.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
 
+        Button popMovies = (Button) findViewById(R.id.popMovie);
+        popMovies.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openApp(getApplicationContext(), "karataiev.dmytro.popularmovies");
+            }
+        });
+
+        Button alexandria = (Button) findViewById(R.id.alexandria);
+        alexandria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openApp(getApplicationContext(), "it.jaschke.alexandria");
+            }
+        });
+
+        Button football_scores = (Button) findViewById(R.id.football_scores);
+        football_scores.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openApp(getApplicationContext(), "barqsoft.footballscores");
+            }
+        });
+
+
     }
 
     @Override
@@ -50,6 +78,10 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Method to show name of the button on the screen
+     * @param view to present the Toast on
+     */
     public void blankActivity(View view) {
         // Toast shows text on the pressed button
         String textOnButton = ((Button) view).getText().toString();
@@ -57,5 +89,24 @@ public class MainActivity extends AppCompatActivity {
 
         Toast toast = Toast.makeText(this, textOnButton, duration);
         toast.show();
+    }
+
+    /** Open another app intent
+     * @param context current Context, like Activity, App, or Service
+     * @param packageName the full package name of the app to open
+     * @return true if likely successful, false if unsuccessful
+     */
+    public static boolean openApp(Context context, String packageName) {
+        PackageManager manager = context.getPackageManager();
+
+        Intent i = manager.getLaunchIntentForPackage(packageName);
+        if (i == null) {
+            return false;
+            //throw new PackageManager.NameNotFoundException();
+        }
+        i.addCategory(Intent.CATEGORY_LAUNCHER);
+        context.startActivity(i);
+        return true;
+
     }
 }
