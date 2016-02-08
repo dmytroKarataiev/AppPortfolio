@@ -101,8 +101,12 @@ public class MainActivity extends AppCompatActivity {
 
         Intent i = manager.getLaunchIntentForPackage(packageName);
         if (i == null) {
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, packageName, duration);
+            toast.show();
+
             return false;
-            //throw new PackageManager.NameNotFoundException();
         }
         i.addCategory(Intent.CATEGORY_LAUNCHER);
         context.startActivity(i);
