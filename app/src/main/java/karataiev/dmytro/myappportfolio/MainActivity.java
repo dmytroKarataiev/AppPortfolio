@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.PorterDuff;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -53,6 +54,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button buildIt = (Button) findViewById(R.id.buildIt);
+        buildIt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openApp(getApplicationContext(), "com.udacity.gradle.builditbigger.paid");
+            }
+        });
+
 
     }
 
@@ -96,20 +105,27 @@ public class MainActivity extends AppCompatActivity {
      * @param packageName the full package name of the app to open
      * @return true if likely successful, false if unsuccessful
      */
-    public static boolean openApp(Context context, String packageName) {
+    public boolean openApp(Context context, String packageName) {
         PackageManager manager = context.getPackageManager();
 
         Intent i = manager.getLaunchIntentForPackage(packageName);
+
         if (i == null) {
-            int duration = Toast.LENGTH_SHORT;
+            i = new Intent(Intent.ACTION_VIEW);
 
-            Toast toast = Toast.makeText(context, packageName, duration);
-            toast.show();
-
-            return false;
+            if (packageName.contains("karataiev.dmytro")) {
+                // Open google play to instal the app
+                i.setData(Uri.parse("market://details?id=" + packageName));
+            } else {
+                // If there is no google play page - open my portfolio site with additional info
+                i.setData(Uri.parse("http://adkdevelopment.com"));
+            }
+        } else {
+            // Set the flag to open the app
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
         }
-        i.addCategory(Intent.CATEGORY_LAUNCHER);
-        context.startActivity(i);
+
+        startActivity(i);
         return true;
 
     }

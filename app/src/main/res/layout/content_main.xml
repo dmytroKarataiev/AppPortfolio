@@ -42,7 +42,6 @@
         <Button
             android:id="@+id/buildIt"
             style="@style/myButton"
-            android:onClick="blankActivity"
             android:text="@string/buildIt" />
 
         <Button
