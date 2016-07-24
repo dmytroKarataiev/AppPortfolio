@@ -1,67 +1,70 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2016. Dmytro Karataiev
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package karataiev.dmytro.myappportfolio;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.databinding.DataBindingUtil;
 import android.graphics.PorterDuff;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import karataiev.dmytro.myappportfolio.databinding.ActivityMainBinding;
+
 public class MainActivity extends AppCompatActivity {
+
+    private Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        ActivityMainBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+
+        mContext = getApplicationContext();
+
+        setSupportActionBar(binding.toolbar);
 
         // Adds red color filter to the button
-        Button capstone = (Button) findViewById(R.id.capstone1);
-        Button capstone2 = (Button) findViewById(R.id.capstone2);
+        binding.contentMain.earthquake
+                .getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
 
-        capstone.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
-        capstone2.getBackground().setColorFilter(0xFFFF0000, PorterDuff.Mode.MULTIPLY);
-
-        Button popMovies = (Button) findViewById(R.id.popMovie);
-        popMovies.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openApp(getApplicationContext(), "karataiev.dmytro.popularmovies");
-            }
-        });
-
-        Button alexandria = (Button) findViewById(R.id.alexandria);
-        alexandria.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openApp(getApplicationContext(), "it.jaschke.alexandria");
-            }
-        });
-
-        Button football_scores = (Button) findViewById(R.id.football_scores);
-        football_scores.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openApp(getApplicationContext(), "barqsoft.footballscores");
-            }
-        });
-
-        Button buildIt = (Button) findViewById(R.id.buildIt);
-        buildIt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openApp(getApplicationContext(), "com.udacity.gradle.builditbigger.paid");
-            }
-        });
-
+        binding.contentMain.popMovie.setOnClickListener(mListener);
+        binding.contentMain.alexandria.setOnClickListener(mListener);
+        binding.contentMain.footballScores.setOnClickListener(mListener);
+        binding.contentMain.buildIt.setOnClickListener(mListener);
+        binding.contentMain.material.setOnClickListener(mListener);
+        binding.contentMain.ubiquitous.setOnClickListener(mListener);
+        binding.contentMain.earthquake.setOnClickListener(mListener);
 
     }
 
@@ -105,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
      * @param packageName the full package name of the app to open
      * @return true if likely successful, false if unsuccessful
      */
-    public boolean openApp(Context context, String packageName) {
+    private boolean openApp(Context context, String packageName) {
         PackageManager manager = context.getPackageManager();
 
         Intent i = manager.getLaunchIntentForPackage(packageName);
@@ -129,4 +132,35 @@ public class MainActivity extends AppCompatActivity {
         return true;
 
     }
+
+    private View.OnClickListener mListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.popMovie:
+                    openApp(mContext, "karataiev.dmytro.popularmovies");
+                    break;
+                case R.id.alexandria:
+                    openApp(mContext, "it.jaschke.alexandria");
+                    break;
+                case R.id.football_scores:
+                    openApp(mContext, "barqsoft.footballscores");
+                    break;
+                case R.id.buildIt:
+                    openApp(mContext, "com.udacity.gradle.builditbigger.paid");
+                    break;
+                case R.id.material:
+                    openApp(mContext, "com.example.xyzreader");
+                    break;
+                case R.id.earthquake:
+                    openApp(mContext, "com.adkdevelopment.earthquakesurvival");
+                    break;
+                case R.id.ubiquitous:
+                    openApp(mContext, "com.example.android.sunshine.app");
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }
